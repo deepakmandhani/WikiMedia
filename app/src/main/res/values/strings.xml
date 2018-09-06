@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">NewsReader</string>
+    <string name="search_hint">Search your fav news ....</string>
+    <string name="no_result_label">Currently, We are unable fetch your fav news.\n Please try again!</string>
+</resources>
