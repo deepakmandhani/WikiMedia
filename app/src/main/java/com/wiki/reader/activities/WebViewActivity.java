@@ -1,4 +1,4 @@
-package com.news.reader.activities;
+package com.wiki.reader.activities;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -10,17 +10,18 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
-import com.news.reader.R;
+import com.wiki.reader.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class WebViewActivity extends AppCompatActivity {
 
-    public static final String NEWS_DATA = "NEWS_DATA";
+    public static final String WIKI_DATA = "WIKI_DATA";
 
     @BindView(R.id.webView1_pb)
     ProgressBar progressBar;
+
     private WebView mWebView;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +64,7 @@ public class WebViewActivity extends AppCompatActivity {
         webSettings.setAllowFileAccess(true);
         webSettings.setEnableSmoothTransition(true);
 
-        String url = getIntent().getStringExtra(NEWS_DATA);
+        String url = getIntent().getStringExtra(WIKI_DATA);
 
         mWebView.setWebViewClient(new WebViewClient() {
             @Override

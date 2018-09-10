@@ -1,7 +1,7 @@
-package com.news.reader.di.modules;
+package com.wiki.reader.di.modules;
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import com.news.reader.network.NewsSearchApiInterface;
+import com.wiki.reader.network.WikiSearchApiInterface;
 
 import javax.inject.Named;
 import javax.inject.Singleton;
@@ -20,7 +20,7 @@ public class NetworkModule {
     @Singleton
     @Named("baseUrl")
     String provideBaseUrl(){
-        return "https://contextualwebsearch-websearch-v1.p.mashape.com/api/Search/";
+        return "https://en.wikipedia.org/";
     }
     @Singleton
     @Provides
@@ -34,7 +34,7 @@ public class NetworkModule {
 
     @Singleton
     @Provides
-    NewsSearchApiInterface provideNewsSearchApiInterface(Retrofit retrofit) {
-        return retrofit.create(NewsSearchApiInterface.class);
+    WikiSearchApiInterface provideNewsSearchApiInterface(Retrofit retrofit) {
+        return retrofit.create(WikiSearchApiInterface.class);
     }
 }

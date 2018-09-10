@@ -1,4 +1,4 @@
-package com.news.reader.di.modules;
+package com.wiki.reader.di.modules;
 
 import android.app.Application;
 import android.content.Context;
