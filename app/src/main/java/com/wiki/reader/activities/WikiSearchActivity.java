@@ -79,7 +79,6 @@ public class WikiSearchActivity extends AppCompatActivity implements IWikiSearch
     protected void onDestroy() {
         super.onDestroy();
         unbinder.unbind();
-        wikiSearchPresenter.closeLocalSource();
     }
 
     @Override
@@ -92,12 +91,12 @@ public class WikiSearchActivity extends AppCompatActivity implements IWikiSearch
     @Override
     public void hideLoading() {
         newsSearchProgressBar.setVisibility(View.GONE);
-        newsSearchRecyclerView.setVisibility(View.VISIBLE);
-        newSearchErrorText.setVisibility(View.GONE);
     }
 
     @Override
     public void showWikiListing(List<Page> pageList) {
+        newsSearchRecyclerView.setVisibility(View.VISIBLE);
+        newSearchErrorText.setVisibility(View.GONE);
         wikiListRecyclerViewAdapter.updateNewsList(pageList);
     }
 

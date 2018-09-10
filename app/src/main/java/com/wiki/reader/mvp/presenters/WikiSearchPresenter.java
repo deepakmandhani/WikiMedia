@@ -49,7 +49,9 @@ public class WikiSearchPresenter {
                             List<Page> pageList = wikiSearchAPIResponse.getQuery().getPages();
                             iWikiSearchView.showWikiListing(pageList);
                             saveWikiPagesToLocal(pageList);
+                            return;
                         }
+                        iWikiSearchView.showErrorView();
                     }
 
                     @Override
@@ -81,7 +83,10 @@ public class WikiSearchPresenter {
 
                     @Override
                     public void onNext(List<Page> value) {
-                        iWikiSearchView.showWikiListing(value);
+                        if(value != null && !value.isEmpty())
+                            iWikiSearchView.showWikiListing(value);
+                        else
+                            iWikiSearchView.showErrorView();
                     }
 
                     @Override
@@ -96,7 +101,4 @@ public class WikiSearchPresenter {
                 });
     }
 
-    public void closeLocalSource() {
-        WikiDatabaseService.getInstance().closeRealm();
-    }
 }

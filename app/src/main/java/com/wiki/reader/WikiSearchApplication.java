@@ -2,6 +2,7 @@ package com.wiki.reader;
 
 import android.app.Application;
 
+import com.wiki.reader.db.WikiDatabaseService;
 import com.wiki.reader.di.componenets.ApplicationComponent;
 import com.wiki.reader.di.componenets.DaggerApplicationComponent;
 import com.wiki.reader.di.modules.ApplicationModule;
@@ -37,5 +38,12 @@ public class WikiSearchApplication extends Application {
                 .name(DB_NAME)
                 .deleteRealmIfMigrationNeeded()
                 .build());
+    }
+
+    @Override
+    public void onTerminate() {
+        super.onTerminate();
+        if(!Realm.getDefaultInstance().isClosed())
+        WikiDatabaseService.getInstance().closeRealm();
     }
 }

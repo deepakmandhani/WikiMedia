@@ -59,6 +59,7 @@
             android:id="@+id/news_search_no_result"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="-100dp"
             android:src="@drawable/no_result_ic"
             android:visibility="gone" />
 
